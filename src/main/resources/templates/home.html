@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
 </head>
 <body>
-$END$
+<h2>Home Page</h2>
+
+<p>Welcome to the home page!</p>
+
+<p>
+User: <span sec:authentication="principal.username"></span>
+    <br><br>
+    Role(s): <span sec:authentication="principal.authorities"></span>
+</p>
+
+<div sec:authorize="hasRole('SUPERVISOR')">
+
+    <p>
+        <a th:href="@{/supervisors}">Information for Supervisors</a>
+        Only for users with Supervisor Role.
+    </p>
+</div>
+<div sec:authorize="hasRole('ADMIN')">
+    <p>
+        <a th:href="@{/admin}">Information for Admins</a>
+        Only for users with Admin Role.
+    </p>
+</div>
+
+<form action="#" th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+
+</form>
 </body>
 </html>

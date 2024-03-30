@@ -12,9 +12,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` 
 VALUES 
-('bob','{bcrypt}',1),
-('alice','{bcrypt}',1),
-('david','{bcrypt}',1);
+('bob','{bcrypt}$2a$12$kKHuxV3aEZ8d9oXJSjPLQeBodqmfBUCieCTb/ELOF31jJt.HolObq',1),
+('alice','{bcrypt}$2a$12$kKHuxV3aEZ8d9oXJSjPLQeBodqmfBUCieCTb/ELOF31jJt.HolObq',1),
+('david','{bcrypt}$2a$12$kKHuxV3aEZ8d9oXJSjPLQeBodqmfBUCieCTb/ELOF31jJt.HolObq',1);
+
+# pass123
 
 CREATE TABLE `authorities` (
   `username` varchar(50) NOT NULL,
